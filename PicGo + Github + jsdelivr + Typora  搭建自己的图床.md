@@ -16,7 +16,7 @@ jsDelivr 有一个十分好用的功能——**它可以加速 Github 仓库的�
 
 勾上生成README file，自动创建main分支，后面会用到，避免后续手动创建。
 
-![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img/2020/Snipaste_2020-12-13_00-53-29.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img/2020/20201213005329.jpg)
 
 #### 1.2 获取token
 
@@ -38,7 +38,7 @@ jsDelivr 有一个十分好用的功能——**它可以加速 Github 仓库的�
 
 [github地址]: https://github.com/Molunerfinn/picgo/releases
 
-#### 2.2配置
+#### 2.2 配置
 
 仓库名：github仓库地址
 
