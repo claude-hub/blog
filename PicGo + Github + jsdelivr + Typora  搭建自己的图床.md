@@ -80,8 +80,9 @@ https://cdn.jsdelivr.net/gh/github名字/仓库名@分支
 
 示例
 
-[转换前]: https://raw.githubusercontent.com/claude-hub/cloud-img/main/2020/20201213012036.png
-[转换后]: https://cdn.jsdelivr.net/gh/claude-hub/cloud-img/2020/20201213012036.png
+`转换前: https://raw.githubusercontent.com/claude-hub/cloud-img/main/2020/20201213012036.png`
+
+`转换后: https://cdn.jsdelivr.net/gh/claude-hub/cloud-img/2020/20201213012036.png`
 
 完成文档编辑后，点开Typora左下角的启用源代码模式，ctrl + f 全局替换下路径就ok了。
 
