@@ -1,0 +1,15 @@
+{
+  "name": "MyDream",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/claude-hub/MyDream.git",
+  "author": "claude-hub <314705487@qq.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs"
+  },
+  "devDependencies": {
+    "vuepress": "^1.8.1"
+  }
+}
