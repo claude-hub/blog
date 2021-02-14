@@ -1,5 +1,5 @@
 module.exports = {
-  title: '进击大前端',
+  title: '前端进阶手册',
   description: '前端进阶',
 
   head: [
