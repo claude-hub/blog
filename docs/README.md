@@ -1,4 +1,7 @@
-## 关于仓库
+---
+home: true
+heroImage: /logo.svg
+actionText: 开始学习 →
+actionLink: /knowledge/CSS.html
 
-这是一个写博客的地方，包含刷Leetcode，手写源码，手写面试题等
-
+---
