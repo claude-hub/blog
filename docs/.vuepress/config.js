@@ -35,16 +35,20 @@ module.exports = {
         }]
       },
       {
-        text: '算法',
-        items: [{
-          text: 'LeetCode',
-          link: '/algorithm/LeetCode/'
-        }]
+        text: '工具库',
+        link: '/utils/Function/'
       },
-      {
-        text: '设计模式',
-        link: '/design/Factory/'
-      },
+      // {
+      //   text: '算法',
+      //   items: [{
+      //     text: 'LeetCode',
+      //     link: '/algorithm/LeetCode/'
+      //   }]
+      // },
+      // {
+      //   text: '设计模式',
+      //   link: '/design/Factory/'
+      // },
       {
         text: '其他',
         link: '/others/ImgURL/',
@@ -65,7 +69,7 @@ module.exports = {
     sidebar: {
       '/knowledge/': [{
         title: '前端知识',
-        collapsable: false,
+        collapsable: false,  // 下级列表不可折叠
         sidebarDepth: 2,
         children: [
           ['CSS', 'CSS 相关'],
@@ -87,6 +91,15 @@ module.exports = {
         sidebarDepth: 2,
         children: [
           ['HTTP', 'HTTP面试题'],
+        ]
+      }],
+      '/utils/': [{
+        title: '工具库',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          ['Function', '函数相关'],
+          ['Array', '数组相关'],
         ]
       }],
       '/algorithm/': [{

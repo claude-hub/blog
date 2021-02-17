@@ -90,6 +90,6 @@ https://cdn.jsdelivr.net/gh/github名字/仓库名@分支
 
 上传图片之前建议压缩一下，可以有效加快图片载入速度
 
-推荐TinyPNG：[https://tinypng.com](https://link.zhihu.com/?target=https%3A//tinypng.com/)
+推荐TinyPNG：[https://tinypng.com](https://tinypng.com/)
 
 定期把github图床仓库下载下来，使用本工具压缩后，重新上传就ok了。
