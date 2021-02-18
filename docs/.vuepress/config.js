@@ -76,6 +76,13 @@ module.exports = {
           ['JS', 'JS 相关'],
           ['ES6', 'ES6大全'],
           ['Browser', '浏览器相关'],
+          ['MVVM', 'MVVM'],
+          ['Vue', 'Vue'],
+          ['React', 'React'],
+          ['Redux', 'Redux'],
+          ['React-Redux', 'React-Redux'],
+          ['React-Router', 'React-Router'],
+          ['Webpack', 'Webpack'],
         ]
       }],
       '/interview/frontend/': [{
