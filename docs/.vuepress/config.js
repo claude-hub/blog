@@ -74,7 +74,8 @@ module.exports = {
         children: [
           ['CSS', 'CSS 相关'],
           ['JS', 'JS 相关'],
-          ['Browser', '浏览器相关']
+          ['ES6', 'ES6大全'],
+          ['Browser', '浏览器相关'],
         ]
       }],
       '/interview/frontend/': [{
