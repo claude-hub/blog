@@ -52,7 +52,7 @@ Function.prototype.myBind = function (context) {
 };
 ```
 
-### throttle
+## throttle
 
 ```javascript
 /**
@@ -76,7 +76,7 @@ function throttle(fn, time) {
 }
 ```
 
-### debounce
+## debounce
 
 ```javascript
 /**
