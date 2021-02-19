@@ -1,5 +1,6 @@
 # ES6 大全
 
+转自: [ES6入门文档](http://caibaojian.com/es6/)
 ## let
 
 - 不存在变量提升
