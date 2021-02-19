@@ -114,7 +114,19 @@ new Vue({
 
 ![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219120029.png)
 
+## 总结
 
+Vue1.0
+
+- 粒度精细。不需要虚拟dom
+- watcher太多了
+
+Vue2.0
+
+- 粒度折中，每个组件一个watcher
+- 每个组件内部值发生了变化，就知道谁变了
+- 可以重新渲染一次获取最新的vdom
+- diff oldVnode newVnode
 
 # VUE
 
