@@ -39,6 +39,88 @@ typeof console.log // 'function'
 
 对象可以通过 `__proto__` 来寻找不属于该对象的属性，`__proto__` 将对象连接起来组成了原型链。
 
+### 原型
+
+- 每个函数都有一个`prototype` 属性，它默认指向一个Object空对象
+
+  ```javascript
+  function Fun(){}
+  console.log(Fun.prototype) // 默认指向一个Objec空对象
+  ```
+
+- 原型对象中有一个属性 `constructor`, 它指向函数对象
+
+  ```javascript
+  Fun.prototype.constructor === Fun
+  ```
+
+  ![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220104500.jpg)
+
+### 显式原型与隐式原型
+
+- 每个函数都有一个 `prototype`, 即显示原型属性，默认指向一个空的Object对象
+
+  ```javascript
+  function Fun(){} // 内部语句：this.prototype = {}
+  ```
+
+- 每个实例对象都有一个 `__proto__`, 即隐式原型
+
+  ```javascript
+  var fun = new Fun() // 内部语句：this.__proto__ = Fun.prototype
+  fun.__proto__
+  ```
+
+- 对象的隐式原型的值等于其对应构造函数的显示原型的值
+
+  ```javascript
+  Fun.prototype === fun.__proto__
+  
+  Fun.prototype.test = function() {}
+  fn.test()
+  ```
+
+  ![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220110208.jpg)
+
+### 隐式原型链
+
+访问一个对象的属性时
+
+- 现在自身属性中查找，找到返回
+- 没找到，再沿着 `__proto__` 这条链向上查找，找到返回
+- 如果最终没找到返回 `undefiend`
+
+作用：查找对象的属性(方法)
+
+![image-20210220111425373](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220111428.png)
+
+图解：实例对象`o1.__proto__ === Object.prototype `  
+
+Object中有个 `prototype` 属性，这个属性里面有个构造函数 `constructor` 指向原型对象
+![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220104500.jpg)
+
+![image-20210220112015450](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220112017.png)
+
+- 函数的显式原型指向的空的Object实例对象 （Object除外）
+
+  ```javascript
+  Fn.prototype instanceof Object // true
+  Object.prototype instanceof Object // fasle
+  Function.prototype instanceof Object // true
+  ```
+
+- 所有的函数都是Function的实例 (包含Function)
+
+  ```javascript
+  Function.__proto__ === Function.prototype
+  ```
+
+- Object的原型对象是原型链的尽头
+
+  ```javascript
+  Object.prototype.__proto__ === null
+  ```
+
 ## new
 
 1. 新生成了一个对象
@@ -72,6 +154,25 @@ function instanceof(left, right) {
     }
 }
 ```
+
+### 如何判断
+
+表达式： a instanceof A
+
+​	如果A函数的显式原型对象在a对象的隐式原型链上，返回true，否则返回false
+
+Function是通过 new 自己产生的实例
+
+### 案例
+
+```javascript
+function Foo(){}
+var f1 = new Foo()
+f1 instanceof Foo //true
+f1 instanceof Object // true
+```
+
+![image-20210220115643158](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220115644.png)
 
 ## this
 
