@@ -9,9 +9,9 @@ module.exports = {
     }]
   ],
 
-  markdown: {
-    lineNumbers: true
-  },
+  // markdown: {
+  //   lineNumbers: true
+  // },
 
   themeConfig: {
     logo: '/logo.svg',
@@ -32,6 +32,9 @@ module.exports = {
         }, {
           text: '计算机相关',
           link: '/interview/computer/HTTP'
+        }, {
+          text: '文章',
+          link: '/interview/articles/'
         }]
       },
       {
@@ -100,6 +103,15 @@ module.exports = {
         sidebarDepth: 2,
         children: [
           ['HTTP', 'HTTP面试题'],
+        ]
+      }],
+      '/interview/articles/': [{
+        title: '文章',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          ['', '汇总'],
+          ['高频前端开发面试问题及答案整理', '高频前端开发面试问题及答案整理']
         ]
       }],
       '/utils/': [{
