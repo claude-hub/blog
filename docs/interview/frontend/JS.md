@@ -13,6 +13,16 @@ function hexToRgba(hex, opacity) {
 }
 ```
 
+## 布尔运算
+
+```javascript
+var a = 0;
+var b = [1];
+console.log(a || b) // [1]
+
+console.log(a && b) // 0
+```
+
 # 手写题
 
 ## 实现一个new操作符
