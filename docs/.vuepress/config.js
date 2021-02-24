@@ -35,6 +35,9 @@ module.exports = {
         }, {
           text: '文章',
           link: '/interview/articles/'
+        }, {
+          text: '面经',
+          link: '/interview/experience/'
         }]
       },
       {
@@ -112,6 +115,16 @@ module.exports = {
         children: [
           ['', '汇总'],
           ['高频前端开发面试问题及答案整理', '高频前端开发面试问题及答案整理']
+        ]
+      }],
+      '/interview/experience/': [{
+        title: '面经',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          ['', '汇总'],
+          ['2021.2.18', '2021.2.18'],
+          ['2021.2.24', '2021.2.24'],
         ]
       }],
       '/utils/': [{
