@@ -215,3 +215,39 @@ console.log(lengthOfLongestSubstring("dvdf"))
 console.log(lengthOfLongestSubstring("adfafwefffdasdcx"))
 ```
 
+## 实现链式调用
+
+链式调用的核心就在于调用完的方法将自身实例返回
+
+```javascript
+function Class1() {
+    console.log('初始化')
+}
+Class1.prototype.method = function(param) {
+    console.log(param)
+    return this
+}
+let cl = new Class1()
+//由于new 在实例化的时候this会指向创建的对象， 所以this.method这个方法会在原型链中找到。
+cl.method('第一次调用').method('第二次链式调用').method('第三次链式调用')
+```
+
+## 类数组和数组的区别，dom 的类数组如何转换成数组
+
+### 定义
+
+数组是一个特殊对象,与常规对象的区别：当由新元素添加到列表中时，自动更新length属性设置length属性，可以截断数组从Array.protoype中继承了方法属性为'Array'类数组是一个拥有length属性，并且他属性为非负整数的普通对象，类数组不能直接调用数组方法。
+
+### 区别 
+
+本质：类数组是简单对象，它的原型关系与数组不同。
+
+### 类数组转换为数组
+
+- 转换方法
+  - 1. 使用 `Array.from()`
+  - 1. 使用 `Array.prototype.slice.call()`
+  - 1. 使用 `Array.prototype.forEach()` 进行属性遍历并组成新的数组
+- 转换须知
+  - 转换后的数组长度由 `length` 属性决定。索引不连续时转换结果是连续的，会自动补位。
+  - 代码示例

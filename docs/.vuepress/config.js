@@ -98,6 +98,8 @@ module.exports = {
         children: [
           ['CSS', 'CSS面试题'],
           ['JS', 'JS面试题'],
+          ['React', 'React面试题'],
+          ['Webpack', 'Webpack面试题'],
         ]
       }],
       '/interview/computer/': [{
