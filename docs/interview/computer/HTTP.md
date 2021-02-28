@@ -220,7 +220,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 #### 预防方案：
 
 - i）为 iframe 设置 sandbox 属性，通过它可以对iframe的行为进行各种限制，充分实现“最小权限“原则
-- ii）服务端设置 X-Frame-Options Header头，拒绝页面被嵌套，X-Frame-Options 是HTTP 响应头中用来告诉浏览器一个页面是否可以嵌入 <iframe> 中
+- ii）服务端设置 X-Frame-Options Header头，拒绝页面被嵌套，X-Frame-Options 是HTTP 响应头中用来告诉浏览器一个页面是否可以嵌入 iframe 中
   - eg.`X-Frame-Options: SAMEORIGIN`
   - SAMEORIGIN: iframe 页面的地址只能为同源域名下的页面
   - ALLOW-FROM: 可以嵌套在指定来源的 iframe 里
@@ -265,7 +265,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 #### 预防方案
 
-将使用 base64 编码过后的文件哈希值写入你所引用的 <script> 或 标签的 integrity 属性值中即可启用子资源完整性能。
+将使用 base64 编码过后的文件哈希值写入你所引用的 \<script\> 或 标签的 integrity 属性值中即可启用子资源完整性能。
 
 ### 网络劫持
 
@@ -343,7 +343,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 反爬虫。如猫眼电影、天眼查等等，以数据内容为核心资产的企业
 
-#### 预防方案：
+#### 预防方案
 
 - i）font-face拼接方式：猫眼电影、天眼查
 - ii）background 拼接：美团
@@ -358,5 +358,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 - iii）code review 保证代码质量
 - iv）默认项目中设置对应的 Header 请求头，如 X-XSS-Protection、 X-Content-Type-Options 、X-Frame-Options Header、Content-Security-Policy 等等
 - v）对第三方包和库做检测：NSP(Node Security Platform)，Snyk
+
+## 图解前端安全
 
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210228215719.png)

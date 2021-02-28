@@ -105,5 +105,50 @@ function debounce(fn, time) {
 
 ## 函数柯里化
 
+```javascript
+// 柯里化之前
+function add(x, y) {
+  return x + y;
+}
+add(1, 2) // 3
+// 柯里化之后
+function addX(y) {
+  return function (x) {
+    return x + y;
+  };
+}
+addX(2)(1) // 3
+```
+
 ## 函数聚合
+
+```javascript
+export default function compose(...funcs) {
+  if (funcs.length === 0) {
+    return arg => arg;
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0];
+  }
+
+  return funcs.reduce((a, b) => (...args) => a(b(...args)));
+}
+
+
+function f1(arg) {
+  console.log("f1", arg);
+  return arg;
+}
+function f2(arg) {
+  console.log("f2", arg);
+  return arg;
+}
+function f3(arg) {
+  console.log("f3", arg);
+  return arg;
+}
+
+compose(f1, f2, f3)("omg"); //f1(f2(f3("omg")));
+```
 
