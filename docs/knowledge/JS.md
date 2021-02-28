@@ -54,7 +54,7 @@ typeof console.log // 'function'
   Fun.prototype.constructor === Fun
   ```
 
-  ![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220104500.jpg)
+  ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220104500.jpg)
 
 ### 显式原型与隐式原型
 
@@ -80,7 +80,7 @@ typeof console.log // 'function'
   fn.test()
   ```
 
-  ![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220110208.jpg)
+  ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220110208.jpg)
 
 ### 隐式原型链
 
@@ -92,14 +92,14 @@ typeof console.log // 'function'
 
 作用：查找对象的属性(方法)
 
-![image-20210220111425373](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220111428.png)
+![image-20210220111425373](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220111428.png)
 
 图解：实例对象`o1.__proto__ === Object.prototype `  
 
 Object中有个 `prototype` 属性，这个属性里面有个构造函数 `constructor` 指向原型对象
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220104500.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220104500.jpg)
 
-![image-20210220112015450](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220112017.png)
+![image-20210220112015450](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220112017.png)
 
 - 函数的显式原型指向的空的Object实例对象 （Object除外）
 
@@ -172,7 +172,7 @@ f1 instanceof Foo //true
 f1 instanceof Object // true
 ```
 
-![image-20210220115643158](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210220115644.png)
+![image-20210220115643158](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210220115644.png)
 
 ## this
 

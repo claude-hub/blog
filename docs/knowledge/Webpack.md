@@ -1,6 +1,6 @@
 # Webpack配置核⼼概念
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219111524.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219111524.jpg)
 
 ## 流程
 
@@ -228,7 +228,7 @@ Objet.keys(compiler.hooks).forEach(hookName => {
 })
 ```
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219114031.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219114031.jpg)
 
 ```javascript
 class CopyrightWebpackPlugin {

@@ -37,7 +37,7 @@ console.log(a && b) // 0
 - 通过 `new`创建的每个对象将最终被 `[[Prototype]]`链接到这个函数的 `prototype`对象上。
 - 如果函数没有返回对象类型 `Object`(包含 `Functoin,Array,Date,RegExg,Error`)，那么 `new`表达式中的函数调用将返回该对象引用。
 
-![image-20210222230554050](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210222230754.png)
+![image-20210222230554050](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210222230754.png)
 
 ## 实现一个JSON.stringify
 
@@ -48,7 +48,7 @@ console.log(a && b) // 0
 > - 不可枚举的属性会被忽略
 > - 如果一个对象的属性值通过某种间接的方式指回该对象本身，即循环引用，属性也会被忽略。
 
-![image-20210222230657816](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210222230800.png)
+![image-20210222230657816](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210222230800.png)
 
 ## 第1题：写一个 mySetInterVal(fn, a, b),每次间隔 a,a+b,a+2b 的时间，然后写一个 myClear，停止上面的 mySetInterVal
 
@@ -181,7 +181,7 @@ console.log(fibonacci1(20))
 
 图解：
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210227114916.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210227114916.png)
 
 ```javascript
 var lengthOfLongestSubstring = function (s) {

@@ -60,7 +60,7 @@ obj.foo = 'foooooooooooo'
 4. 由于data的某个key在⼀个视图中可能出现多次，所以每个key都需要⼀个管家Dep来管理多个 Watcher 
 5. 将来data中数据⼀旦发⽣变化，会⾸先找到对应的Dep，通知所有Watcher执⾏更新函数
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219120029.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219120029.png)
 
 涉及类型：
 
@@ -71,11 +71,11 @@ obj.foo = 'foooooooooooo'
 
 ### Compile
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219120725.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219120725.png)
 
 编译模板中vue模板特殊语法，初始化视图、更新视图
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219120743.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219120743.jpg)
 
 
 
@@ -103,7 +103,7 @@ new Vue({
 });
 ```
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219122940.jpg)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219122940.jpg)
 
 ## 实现思路
 
@@ -112,7 +112,7 @@ new Vue({
 3. 由于触发name1的getter⽅法，便将watcher1添加到name1对应的Dep中
 4. 当name1更新，setter触发时，便可通过对应Dep通知其管理所有Watcher更新
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219120029.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219120029.png)
 
 ## 总结
 
@@ -132,4 +132,4 @@ Vue2.0
 
 ## 生命周期
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210219115407.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210219115407.png)

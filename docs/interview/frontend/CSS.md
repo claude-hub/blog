@@ -89,7 +89,7 @@ div {
 </div>
 ```
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210221232212.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210221232212.png)
 
 方案二：使用flex布局实现
 

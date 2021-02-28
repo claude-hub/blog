@@ -334,15 +334,15 @@ export default class InlineStyledComponents extends React.Component {
 React并不是将click事件绑在该div的真实DOM上，而是在document处监听所有支持的事件，当事件发生并冒泡至document处时，React将事件内容封装并交由真正的处理函数运行。这样的方式不仅减少了内存消耗，还能在组件挂载销毁时统一订阅和移除事件。
 另外冒泡到 document 上的事件也不是原生浏览器事件，而是 React 自己实现的合成事件（SyntheticEvent）。因此我们如果不想要事件冒泡的话，调用 event.stopPropagation 是无效的，而应该调用 event.preventDefault。
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210227173703.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210227173703.png)
 
 ## 整体流程
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210227174026.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210227174026.png)
 
 ## 事件注册
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210227173750.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210227173750.png)
 
 - 组件装载 / 更新。
 - 通过lastProps、nextProps判断是否新增、删除事件分别调用事件注册、卸载方法。

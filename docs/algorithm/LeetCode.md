@@ -29,5 +29,60 @@ console.log(getResult(arr, 3, 10, []));
 
 ## 深度优先遍历
 
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210228212553.webp)
+
+```html
+<div id='root'>
+  <span>123
+    <a href="#">
+      sdsd
+    </a>
+    <div>sdsd<a>这是一个a标签</a></div>
+  </span>
+  <span>456
+    <p>这是一个p标签</p>
+  </span>
+</div>
+```
+
+```javascript
+function deepFirstSearch(node, nodeList) {
+  if (node) {
+    nodeList.push(node);
+    const children = node.children;
+    for (let i = 0; i < children.length; i++)
+      //每次递归的时候将需要遍历的节点 和 节点所存储的数组传下去
+      deepFirstSearch(children[i], nodeList);
+  }
+  return nodeList;
+}
+const root = document.getElementById('root');
+const a =  deepFirstSearch(root, [])
+console.log(a)
+```
+
+## 广度优先遍历
+
+```javascript
+// 用队列进行广度优先遍历
+function breadthFirstSearch (node) {
+    const queue = [];
+    const nodeList = [];
+    if (node !== null) {
+        queue.push(node);
+        while(queue.length > 0) {
+            const item = queue.shift();
+            nodeList.push(item);
+            Array.from(item.children).forEach((child) => {
+                queue.push(child);
+            });
+        }
+    }
+    return nodeList;
+}
+const b = breadthFirstSearch(root)
+console.log(b)
+```
+
 
 
