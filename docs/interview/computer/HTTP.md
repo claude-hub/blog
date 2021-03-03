@@ -365,7 +365,7 @@ CSRF通常从第三方网站发起，被攻击的网站无法防止攻击发生�
 
 ## Options请求
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210303214447.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210303214447.png)
 
 ### 为什么发生两次请求
 
@@ -438,9 +438,9 @@ Cookie 存储在客户端中，而Session存储在服务器上，相对来说 Se
 
 如下图所示，下面的两个机器人通过3次握手确定了对方能正确接收和发送消息(图片来源：《图解HTTP》)。 
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210303221230.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210303221230.png)
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210303221230.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210303221230.png)
 
 简单示意图
 
@@ -468,7 +468,7 @@ Cookie 存储在客户端中，而Session存储在服务器上，相对来说 Se
 
 ### 为什么要四次挥手
 
-![](https://raw.githubusercontent.com/claude-hub/cloud-img/main/2021/20210303221617.png)
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210303221617.png)
 
 断开一个 TCP 连接则需要“四次挥手”：
 
@@ -482,3 +482,17 @@ Cookie 存储在客户端中，而Session存储在服务器上，相对来说 Se
 举个例子：A 和 B 打电话，通话即将结束后，A 说“我没啥要说的了”，B回答“我知道了”，但是 B 可能还会有要说的话，A 不能要求 B 跟着自己的节奏结束通话，于是 B 可能又巴拉巴拉说了一通，最后 B 说“我说完了”，A 回答“知道了”，这样通话才算结束。
 
 上面讲的比较概括，推荐一篇讲的比较细致的文章：https://blog.csdn.net/qzcsu/article/details/72861891
+
+## HTTPS
+
+![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/20210303224333.png)
+
+Client发起一个HTTPS（https:/demo.linianhui.dev）的请求，根据RFC2818的规定，Client知道需要连接Server的443（默认）端口。
+Server把事先配置好的公钥证书（public key certificate）返回给客户端。
+Client验证公钥证书：比如是否在有效期内，证书的用途是不是匹配Client请求的站点，是不是在CRL吊销列表里面，它的上一级证书是否有效，这是一个递归的过程，直到验证到根证书（操作系统内置的Root证书或者Client内置的Root证书）。如果验证通过则继续，不通过则显示警告信息。
+Client使用伪随机数生成器生成加密所使用的会话密钥，然后用证书的公钥加密这个会话密钥，发给Server。
+Server使用自己的私钥（private key）解密这个消息，得到会话密钥。至此，Client和Server双方都持有了相同的会话密钥。
+Server使用会话密钥加密“明文内容A”，发送给Client。
+Client使用会话密钥解密响应的密文，得到“明文内容A”。
+Client再次发起HTTPS的请求，使用会话密钥加密请求的“明文内容B”，然后Server使用会话密钥解密密文，得到“明文内容B”。
+简单总结下，HTTPS是使用了证书的一个混合密码系统，其中证书的作用在于传递会话密钥，以及验证网站的真实性；而HTTPS真正的加密操作是由对称密码这个工具负责的。
