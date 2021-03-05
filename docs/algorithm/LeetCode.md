@@ -92,7 +92,5 @@ console.log(b)
 
 ## 实现Array.prototype.splice
 
-## 
-
 
 
