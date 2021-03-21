@@ -6,11 +6,18 @@
   "author": "claude-hub <314705487@qq.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "vuepress dev docs",
+    "start": "vuepress dev docs",
     "build": "vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.1",
+    "commitizen": "^4.2.3",
+    "cz-conventional-changelog": "3.3.0",
     "vuepress": "^1.8.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }

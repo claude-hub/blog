@@ -41,6 +41,10 @@ module.exports = {
         }]
       },
       {
+        text: '工程化',
+        link: '/engineer/'
+      },
+      {
         text: '工具库',
         link: '/utils/Function/'
       },
@@ -160,6 +164,7 @@ module.exports = {
         sidebarDepth: 2,
         children: [
           ['ImgURL', '图床'],
+          ['SSR', 'SSR'],
         ]
       }],
     }
