@@ -165,6 +165,7 @@ module.exports = {
         children: [
           ['ImgURL', '图床'],
           ['SSR', 'SSR'],
+          ['微信反编译工具', '微信反编译工具'],
         ]
       }],
     }
