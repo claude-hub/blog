@@ -8,3 +8,7 @@
 
 > tree
 
+- 录屏
+
+> Command + shift + 5
+

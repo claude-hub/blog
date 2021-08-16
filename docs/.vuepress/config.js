@@ -21,6 +21,10 @@ module.exports = {
         link: '/',
       },
       {
+        text: '文章',
+        link: '/articles/',
+      },
+      {
         text: '前端知识',
         link: '/knowledge/CSS/'
       },
@@ -40,10 +44,10 @@ module.exports = {
           link: '/interview/experience/'
         }]
       },
-      {
-        text: '工程化',
-        link: '/engineer/'
-      },
+      // {
+      //   text: '工程化',
+      //   link: '/engineer/'
+      // },
       {
         text: '工具库',
         link: '/utils/Function/'
@@ -93,6 +97,14 @@ module.exports = {
           ['React-Redux', 'React-Redux'],
           ['React-Router', 'React-Router'],
           ['Webpack', 'Webpack'],
+        ]
+      }],
+      '/articles/':  [{
+        title: '文章',
+        collapsable: false,
+        sidebarDepth: 2,
+        children: [
+          ['BASE', '总结了38个ES6-ES12的开发技巧']
         ]
       }],
       '/interview/frontend/': [{
