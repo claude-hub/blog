@@ -189,12 +189,19 @@ mark 方法 和 measure 方法的结合可打点计时，获取某个函数执�
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/006tNbRwgy1gah5dbnjlej31nq0u01es.jpg)
 
 performance.getEntriesByName() 
+
 performance.getEntriesByType() 
+
 performance.mark() 
+
 performance.clearMarks() 
+
 performance.measure() 
+
 performance.clearMeasures() 
+
 performance.now() 
+
 ...
 
 ### 提供的 API
@@ -226,22 +233,37 @@ performance.getEntriesByType("navigation");
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/006tNbRwgy1gah5g41v1jj318o0dugnt.jpg)
 
 不同阶段之间是连续的吗? —— 不连续 
+
 每个阶段都一定会发生吗？—— 不一定
 
 重定向次数：performance.navigation.redirectCount 
+
 重定向耗时: redirectEnd - redirectStart 
+
 DNS 解析耗时: domainLookupEnd - domainLookupStart 
+
 TCP 连接耗时: connectEnd - connectStart 
+
 SSL 安全连接耗时: connectEnd - secureConnectionStart 
+
 网络请求耗时 (TTFB): responseStart - requestStart 
+
 数据传输耗时: responseEnd - responseStart 
+
 DOM 解析耗时: domInteractive - responseEnd 
+
 资源加载耗时: loadEventStart - domContentLoadedEventEnd 
+
 首包时间: responseStart - domainLookupStart 
+
 白屏时间: responseEnd - fetchStart 
+
 首次可交互时间: domInteractive - fetchStart 
+
 DOM Ready 时间: domContentLoadEventEnd - fetchStart 
+
 页面完全加载时间: loadEventStart - fetchStart 
+
 http 头部大小： transferSize - encodedBodySize
 
 #### 3\. Resource Timing API
@@ -253,7 +275,17 @@ performance.getEntriesByType("resource");
 
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/006tNbRwgy1gah5h63g05j31c60le0w9.jpg)
 
-<table class="crayon-table"><tbody><tr class="crayon-row"><td class="crayon-nums " data-settings="show"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 20px !important;"><div class="crayon-num" data-line="crayon-611b0779189e6236907694-1">1</div><div class="crayon-num" data-line="crayon-611b0779189e6236907694-2">2</div><div class="crayon-num" data-line="crayon-611b0779189e6236907694-3">3</div><div class="crayon-num" data-line="crayon-611b0779189e6236907694-4">4</div><div class="crayon-num" data-line="crayon-611b0779189e6236907694-5">5</div><div class="crayon-num" data-line="crayon-611b0779189e6236907694-6">6</div></div></td><td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 20px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-611b0779189e6236907694-1"><span class="crayon-c">// 某类资源的加载时间，可测量图片、js、css、XHR</span></div><div class="crayon-line" id="crayon-611b0779189e6236907694-2"><span class="crayon-v">resourceListEntries</span><span class="crayon-sy">.</span><span class="crayon-st">forEach</span><span class="crayon-sy">(</span><span class="crayon-v">resource</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-611b0779189e6236907694-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-st">if</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">resource</span><span class="crayon-sy">.</span><span class="crayon-v">initiatorType</span><span class="crayon-h"> </span><span class="crayon-o">==</span><span class="crayon-h"> </span><span class="crayon-s">'img'</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-611b0779189e6236907694-4"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">console</span><span class="crayon-sy">.</span><span class="crayon-e">info</span><span class="crayon-sy">(</span><span class="crayon-sy">`</span><span class="crayon-e">Time</span><span class="crayon-h"> </span><span class="crayon-e">taken</span><span class="crayon-h"> </span><span class="crayon-st">to</span><span class="crayon-h"> </span><span class="crayon-e">load</span><span class="crayon-h"> </span><span class="crayon-sy">$</span><span class="crayon-sy">{</span><span class="crayon-v">resource</span><span class="crayon-sy">.</span><span class="crayon-v">name</span><span class="crayon-sy">}</span><span class="crayon-o">:</span><span class="crayon-h"> </span><span class="crayon-sy">`</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-v">resource</span><span class="crayon-sy">.</span><span class="crayon-v">responseEnd</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">resource</span><span class="crayon-sy">.</span><span class="crayon-v">startTime</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189e6236907694-5"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-sy">}</span></div><div class="crayon-line" id="crayon-611b0779189e6236907694-6"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td></tr></tbody></table>
+```js
+// 某类资源的加载时间，可测量图片、js、css、XHR
+resourceListEntries.forEach((resource) => {
+  if (resource.initiatorType == "img") {
+    console.info(
+      `Time taken to load ${resource.name}: `,
+      resource.responseEnd - resource.startTime
+    );
+  }
+});
+```
 
 这个数据和 chrome 调式工具里 network 的瀑布图数据是一样的。
 
@@ -280,40 +312,65 @@ performance.getEntriesByType("resource");
 
 ### 总结
 
-基于 performance 我们可以测量如下几个方面： 
-mark、measure、navigation、resource、paint、frame。
+基于 performance 我们可以测量如下几个方面： mark、measure、navigation、resource、paint、frame。
 
 let p = window.performance.getEntries(); 
+
 重定向次数：performance.navigation.redirectCount 
+
 JS 资源数量：p.filter(ele => ele.initiatorType === "script").length 
+
 CSS 资源数量：p.filter(ele => ele.initiatorType === "css").length 
+
 AJAX 请求数量：p.filter(ele => ele.initiatorType === "xmlhttprequest").length 
+
 IMG 资源数量：p.filter(ele => ele.initiatorType === "img").length 
+
 总资源数量: window.performance.getEntriesByType("resource").length
 
 **不重复的耗时时段区分：** 
+
 重定向耗时: redirectEnd - redirectStart 
+
 DNS 解析耗时: domainLookupEnd - domainLookupStart 
+
 TCP 连接耗时: connectEnd - connectStart 
+
 SSL 安全连接耗时: connectEnd - secureConnectionStart 
+
 网络请求耗时 (TTFB): responseStart - requestStart 
+
 HTML 下载耗时：responseEnd - responseStart 
+
 DOM 解析耗时: domInteractive - responseEnd 
+
 资源加载耗时: loadEventStart - domContentLoadedEventEnd
 
 **其他组合分析：** 
+
 白屏时间: domLoading - fetchStart 
+
 粗略首屏时间: loadEventEnd - fetchStart 或者 domInteractive - fetchStart 
+
 DOM Ready 时间: domContentLoadEventEnd - fetchStart 
+
 页面完全加载时间: loadEventStart - fetchStart
 
 **JS 总加载耗时:**
 
-<table class="crayon-table"><tbody><tr class="crayon-row"><td class="crayon-nums " data-settings="show"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 20px !important;"><div class="crayon-num" data-line="crayon-611b0779189ee226742159-1">1</div><div class="crayon-num" data-line="crayon-611b0779189ee226742159-2">2</div><div class="crayon-num" data-line="crayon-611b0779189ee226742159-3">3</div></div></td><td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 20px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-611b0779189ee226742159-1"><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-v">p</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">window</span><span class="crayon-sy">.</span><span class="crayon-v">performance</span><span class="crayon-sy">.</span><span class="crayon-e">getEntries</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189ee226742159-2"><span class="crayon-e">let </span><span class="crayon-v">cssR</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">p</span><span class="crayon-sy">.</span><span class="crayon-e">filter</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">initiatorType</span><span class="crayon-h"> </span><span class="crayon-o">===</span><span class="crayon-h"> </span><span class="crayon-s">"script"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189ee226742159-3"><span class="crayon-v">Math</span><span class="crayon-sy">.</span><span class="crayon-e">max</span><span class="crayon-sy">(</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">cssR</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">responseEnd</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">Math</span><span class="crayon-sy">.</span><span class="crayon-e">min</span><span class="crayon-sy">(</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">cssR</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">startTime</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td></tr></tbody></table>
+```js
+const p = window.performance.getEntries();
+let cssR = p.filter((ele) => ele.initiatorType === "script");
+Math.max(...cssR.map((ele) => ele.responseEnd)) - Math.min(...cssR.map((ele) => ele.startTime));
+```
 
 **CSS 总加载耗时:**
 
-<table class="crayon-table"><tbody><tr class="crayon-row"><td class="crayon-nums " data-settings="show"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 20px !important;"><div class="crayon-num" data-line="crayon-611b0779189f1256310572-1">1</div><div class="crayon-num" data-line="crayon-611b0779189f1256310572-2">2</div><div class="crayon-num" data-line="crayon-611b0779189f1256310572-3">3</div></div></td><td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 20px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-611b0779189f1256310572-1"><span class="crayon-m">const</span><span class="crayon-h"> </span><span class="crayon-v">p</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">window</span><span class="crayon-sy">.</span><span class="crayon-v">performance</span><span class="crayon-sy">.</span><span class="crayon-e">getEntries</span><span class="crayon-sy">(</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189f1256310572-2"><span class="crayon-e">let </span><span class="crayon-v">cssR</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-h"> </span><span class="crayon-v">p</span><span class="crayon-sy">.</span><span class="crayon-e">filter</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">initiatorType</span><span class="crayon-h"> </span><span class="crayon-o">===</span><span class="crayon-h"> </span><span class="crayon-s">"css"</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189f1256310572-3"><span class="crayon-v">Math</span><span class="crayon-sy">.</span><span class="crayon-e">max</span><span class="crayon-sy">(</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">cssR</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">responseEnd</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">-</span><span class="crayon-h"> </span><span class="crayon-v">Math</span><span class="crayon-sy">.</span><span class="crayon-e">min</span><span class="crayon-sy">(</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-sy">.</span><span class="crayon-v">cssR</span><span class="crayon-sy">.</span><span class="crayon-e">map</span><span class="crayon-sy">(</span><span class="crayon-sy">(</span><span class="crayon-v">ele</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-o">=</span><span class="crayon-o">&gt;</span><span class="crayon-h"> </span><span class="crayon-v">ele</span><span class="crayon-sy">.</span><span class="crayon-v">startTime</span><span class="crayon-sy">)</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td></tr></tbody></table>
+```js
+const p = window.performance.getEntries();
+let cssR = p.filter((ele) => ele.initiatorType === "css");
+Math.max(...cssR.map((ele) => ele.responseEnd)) - Math.min(...cssR.map((ele) => ele.startTime));
+```
 
 如何监控？
 -----
@@ -330,9 +387,13 @@ DOM Ready 时间: domContentLoadEventEnd - fetchStart
 #### 1\. 基本性能上报
 
 采集数据：将 performance navagation timing 中的所有点都上报，其余的上报内容可参考 performance 分析一节中截取部分上报。例如：白屏时间，JS 和 CSS 总数，以及加载总时长。 
+
 其余可参考的上报：是否有缓存？是否启用 gzip 压缩、页面加载方式。 
+
 在收集好性能数据后，即可将数据上报。 
+
 那选择什么时机上报？ 
+
 google 开发者推荐的上报方式：
 
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/006tNbRwgy1gah5jncmspj31fw0lgtct.jpg)
@@ -341,13 +402,19 @@ google 开发者推荐的上报方式：
 
 我们知道首屏时间是一项重要指标，但是又很难从 performance 中拿到，来看下首屏时间计算主要有哪些方式？ 
 [https://web.dev/first-meaningful-paint/](https://web.dev/first-meaningful-paint/) 
+
 1）用户自定义打点—最准确的方式（只有用户自己最清楚，什么样的时间才算是首屏加载完成） 
+
 2）lighthouse 中使用的是 chrome 渲染过程中记录的 trace event 
+
 3）可利用 [Chrome DevTools Protocol](https://chromedevtools.github.io/devtools-protocol/) 拿到页面布局节点数目。思想是：获取到当页面具有最大布局变化的时间点 
+
 4）aegis 的方法：利用 MutationObserver 接口，监听 document 对象的节点变化。 
 检查这些变化的节点是否显示在首屏中，若这些节点在首屏中，那当前的时间点即为首屏渲染时间。但是还有首屏内图片的加载时间需要考虑，遍历 performance.getEntries() 拿到的所有图片实体对象，根据图片的初始加载时间和加载完成时间去更新首屏渲染时间。 
+
 5）利用 MutationObserver 接口提供了监视对 DOM 树所做更改的能力，是 DOM3 Events 规范的一部分。 
 方法：在首屏内容模块插入一个 div，利用 Mutation Observer API 监听该 div 的 dom 事件，判断该 div 的高度是否大于 0 或者大于指定值，如果大于了，就表示主要内容已经渲染出来，可计算首屏时间。 
+
 6）某个专利：在 loading 状态下循环判断当前页面高度是否大于屏幕高度，若大于，则获取到当前页面的屏幕图像，通过逐像素对比来判断页面渲染是否已满屏。[https://patentimages.storage.googleapis.com/bd/83/3d/f65775c31c7120/CN103324521A.pdf](https://patentimages.storage.googleapis.com/bd/83/3d/f65775c31c7120/CN103324521A.pdf)
 
 ![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/006tNbRwgy1gah5jysgr5j31et0u0h1a.jpg)
@@ -355,18 +422,34 @@ google 开发者推荐的上报方式：
 #### 3\. 异常上报
 
 1）js error 
+
 监听 window.onerror 事件 
+
 2）promise reject 的异常 
+
 监听 unhandledrejection 事件
 
-<table class="crayon-table"><tbody><tr class="crayon-row"><td class="crayon-nums " data-settings="show"><div class="crayon-nums-content" style="font-size: 14px !important; line-height: 20px !important;"><div class="crayon-num" data-line="crayon-611b0779189f5289079047-1">1</div><div class="crayon-num" data-line="crayon-611b0779189f5289079047-2">2</div><div class="crayon-num" data-line="crayon-611b0779189f5289079047-3">3</div><div class="crayon-num" data-line="crayon-611b0779189f5289079047-4">4</div></div></td><td class="crayon-code"><div class="crayon-pre" style="font-size: 14px !important; line-height: 20px !important; -moz-tab-size:4; -o-tab-size:4; -webkit-tab-size:4; tab-size:4;"><div class="crayon-line" id="crayon-611b0779189f5289079047-1"><span class="crayon-v">window</span><span class="crayon-sy">.</span><span class="crayon-e">addEventListener</span><span class="crayon-sy">(</span><span class="crayon-s">"unhandledrejection"</span><span class="crayon-sy">,</span><span class="crayon-h"> </span><span class="crayon-t">function</span><span class="crayon-h"> </span><span class="crayon-sy">(</span><span class="crayon-v">event</span><span class="crayon-sy">)</span><span class="crayon-h"> </span><span class="crayon-sy">{</span></div><div class="crayon-line" id="crayon-611b0779189f5289079047-2"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-v">console</span><span class="crayon-sy">.</span><span class="crayon-e">warn</span><span class="crayon-sy">(</span><span class="crayon-s">"WARNING: Unhandled promise rejection. Shame on you! Reason: "</span></div><div class="crayon-line" id="crayon-611b0779189f5289079047-3"><span class="crayon-h">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="crayon-o">+</span><span class="crayon-h"> </span><span class="crayon-v">event</span><span class="crayon-sy">.</span><span class="crayon-v">reason</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div><div class="crayon-line" id="crayon-611b0779189f5289079047-4"><span class="crayon-sy">}</span><span class="crayon-sy">)</span><span class="crayon-sy">;</span></div></div></td></tr></tbody></table>
+```js
+window.addEventListener("unhandledrejection", function(event) {
+  console.warn(
+    "WARNING: Unhandled promise rejection. Shame on you! Reason: " +
+      event.reason
+  );
+});
+```
 
 3）资源加载失败 
+
 window.addEventListener('error') 
+
 4）网络请求失败 
+
 重写 window.XMLHttpRequest 和 window.fetch 捕获请求错误 
+
 5）iframe 异常 
+
 window.frames\[0\].onerror 
+
 6）window.console.error
 
 #### 4\. CGI 上报
@@ -381,23 +464,40 @@ window.frames\[0\].onerror
 ----
 
 为什么性能如此重要：[https://developers.google.cn/web/fundamentals/performance/why-performance-matters](https://developers.google.cn/web/fundamentals/performance/why-performance-matters) 
+
 Chrome 中的 First Meaningful Paint：[https://juejin.im/entry/598080226fb9a03c5d535cd5](https://juejin.im/entry/598080226fb9a03c5d535cd5) 
+
 蚂蚁金服：[https://www.infoq.cn/article/Dxa8aM44oz\*Lukk5Ufhy](https://www.infoq.cn/article/Dxa8aM44oz*Lukk5Ufhy) 
+
 FMP：[https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view#heading=h.k50nnyhtptq0](https://docs.google.com/document/d/1BR94tJdZLsin5poeet0XoTW60M0SjvOJQttKT-JK8HI/view#heading=h.k50nnyhtptq0) 
+
 如何搭建前端监控体系：[https://www.zhihu.com/question/37585246](https://www.zhihu.com/question/37585246) 
+
 FEX-7 天打造前端性能监控系统：[https://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/](https://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/) 
+
 首屏时间自动化：[https://cloud.tencent.com/developer/article/1061844](https://cloud.tencent.com/developer/article/1061844) 
+
 [https://segmentfault.com/a/1190000013532766](https://segmentfault.com/a/1190000013532766) 
+
 如何使用 performance api 来测量性能：[https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/](https://blog.logrocket.com/how-to-practically-use-performance-api-to-measure-performance/) 
+
 Improving Performance with the Paint Timing API：[https://www.sitepen.com/blog/improving-performance-with-the-paint-timing-api/](https://www.sitepen.com/blog/improving-performance-with-the-paint-timing-api/) 
+
 chrome-performance 页面性能分析使用教程：[https://www.cnblogs.com/ranyonsue/p/9342839.html](https://www.cnblogs.com/ranyonsue/p/9342839.html) 
+
 阿里云前端监控概述：[https://help.aliyun.com/document\_detail/58652.html?spm=a2c4g.11186623.6.627.7f782f4dsb9ZV7](https://help.aliyun.com/document_detail/58652.html?spm=a2c4g.11186623.6.627.7f782f4dsb9ZV7) 
+
 first load 与 first meaningful 的区别：[https://webenso.com/forget-page-load-time/](https://webenso.com/forget-page-load-time/) 
+
 其他：[https://cdc.tencent.com/2018/09/13/frontend-exception-monitor-research/](https://cdc.tencent.com/2018/09/13/frontend-exception-monitor-research/) 
+
 lightHouse 实现原理：[https://juejin.im/post/5dca05f45188250c643b7d76](https://juejin.im/post/5dca05f45188250c643b7d76) 
+
 Test website performance with Puppeteer：[https://michaljanaszek.com/blog/test-website-performance-with-puppeteer](https://michaljanaszek.com/blog/test-website-performance-with-puppeteer)
 
-原创文章转载请注明：
+
+转载
+----
 
 转载自AlloyTeam：[http://www.alloyteam.com/2020/01/14184/](http://www.alloyteam.com/2020/01/14184/)
 
