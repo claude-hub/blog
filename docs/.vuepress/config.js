@@ -104,7 +104,7 @@ module.exports = {
         collapsable: false,
         sidebarDepth: 2,
         children: [
-          ['BASE', '总结了38个ES6-ES12的开发技巧'],
+          ['总结了38个ES6-ES12的开发技巧', '总结了38个ES6-ES12的开发技巧'],
           ['如何进行web性能监控？', '如何进行web性能监控？'],
         ]
       }],
