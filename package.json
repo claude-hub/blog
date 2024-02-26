@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev docs",
-    "build": "vuepress build docs",
+    "build": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
     "deploy": "npm run build && sh ./deploy.sh"
   },
   "devDependencies": {
