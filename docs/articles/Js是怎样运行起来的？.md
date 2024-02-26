@@ -420,16 +420,3 @@ https://www.jianshu.com/p/e4a75cb6f268
 **来源：字节前端 ByteFE**
 
 https://mp.weixin.qq.com/s/3ROdZZ_xTtl6B5ii4ha46w
-
-
-
-最后
-
-欢迎关注 「前端进阶手册」，每日进步一点点，进阶高级前端。
-
-![](https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/2021/qrcode_for_gh_e7c17a2d946d_258.jpg)
-
-回复「书籍」，免费领取一份高级前端必看书籍。包含红宝书第四版、犀牛书第七版、算法、面试等等。
-
-回复「加入神策」，获取神策书籍内推资格，快来加入我们吧 ~
-

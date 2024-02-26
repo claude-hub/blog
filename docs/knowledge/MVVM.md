@@ -1,6 +1,6 @@
-转自：[yck博客](https://yuchengkai.cn/docs/frontend/framework.html)
-
 # MVVM
+
+转自：[yck博客](https://yuchengkai.cn/docs/frontend/framework.html)
 
 MVVM 由以下三个内容组成
 
