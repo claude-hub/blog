@@ -1,12 +1,36 @@
 const fs = require('fs');
 const path = require('path');
 
-const readFolder = (dir) => {
-  const folder = path.resolve(__dirname, dir);
+// 查找指定文件夹下面的文件夹
+const readSubFolders = (folder) => {
   const isExist = fs.existsSync(folder);
   if (!isExist) return [];
+
   const files = fs.readdirSync(folder);
+  return files.filter(item => {
+    const fPath = path.join(folder, item);
+    const stat = fs.statSync(fPath);
+    if (stat.isDirectory() === true) {
+      return true
+    }
+    return false
+  })
+}
+
+const readFolder = (folder, folderName = '') => {
+  const realPath = folderName ? `${folderName}/` : '';
+
+  const isExist = fs.existsSync(folder);
+  if (!isExist) return [];
+
+  const files = fs.readdirSync(folder);
+
   return files.map((item) => {
+    const fPath = path.join(folder, item);
+    const stat = fs.statSync(fPath);
+    if (stat.isDirectory()) {
+      return false
+    }
     let title = item.replace('.md', '');
     if (title.charAt(2) === '.') {
       title = title.substring(3);
@@ -15,9 +39,23 @@ const readFolder = (dir) => {
     if (title === 'README') {
       return ['', '汇总'];
     }
-    return [item, title];
-  });
+    return [`${realPath}${item}`, title];
+  }).filter(item => item);
 };
+
+const knowledgeFolder = path.resolve(__dirname, '../knowledge');
+
+const knowledge = readSubFolders(knowledgeFolder).map(item => {
+  let title = item;
+  if (title.charAt(2) === '.') {
+    title = title.substring(3);
+  }
+  return {
+    title,
+    sidebarDepth: 0,
+    children: readFolder(path.join(knowledgeFolder, item), item),
+  }
+})
 
 module.exports = {
   title: '前端进阶手册',
@@ -51,7 +89,7 @@ module.exports = {
       },
       {
         text: '前端知识',
-        link: '/knowledge/00.HTML/',
+        link: '/knowledge/00.HTML/00.DOCTYPE',
       },
       {
         text: '面试题',
@@ -113,15 +151,11 @@ module.exports = {
     ],
     sidebar: {
       '/knowledge/': [
-        {
-          title: '基础知识',
-          sidebarDepth: 1,
-          children: readFolder('../knowledge').slice(0, 6),
-        },
+        ...knowledge,
         {
           title: '框架相关',
           sidebarDepth: 1,
-          children: readFolder('../knowledge').slice(6),
+          children: readFolder(path.resolve(__dirname, '../knowledge')),
         },
       ],
       '/articles/': [
@@ -129,7 +163,7 @@ module.exports = {
           title: '文章',
           collapsable: false, // 下级列表不可折叠
           sidebarDepth: 0,
-          children: readFolder('../articles'),
+          children: readFolder(path.resolve(__dirname, '../articles')),
         },
       ],
       '/interview/frontend/': [
