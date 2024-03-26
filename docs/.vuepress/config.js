@@ -28,7 +28,7 @@ const readFolder = (folder, folderName = '') => {
   return files.map((item) => {
     const fPath = path.join(folder, item);
     const stat = fs.statSync(fPath);
-    if (stat.isDirectory()) {
+    if (stat.isDirectory() || !item.endsWith('.md')) {
       return false
     }
     let title = item.replace('.md', '');
