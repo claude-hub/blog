@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+process.env.TZ = 'Asia/Shanghai';
+
 // 查找指定文件夹下面的文件夹
 const readSubFolders = (folder) => {
   const isExist = fs.existsSync(folder);
