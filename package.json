@@ -1,19 +1,22 @@
 {
-  "name": "MyDream",
+  "name": "blog",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/claude-hub/MyDream.git",
+  "repository": "https://github.com/claude-hub/blog.git",
   "author": "claude-hub <314705487@qq.com>",
   "license": "MIT",
   "scripts": {
     "start": "vuepress dev docs",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && vuepress build docs",
-    "deploy": "npm run build && sh ./deploy.sh"
+    "deploy": "npm run build && sh ./deploy.sh",
+    "code": "node scripts/git.js"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.8.1",
     "commitizen": "^4.2.3",
     "cz-conventional-changelog": "3.3.0",
+    "simple-git": "^3.23.0",
+    "chalk": "^4",
     "vuepress": "^1.8.1"
   },
   "config": {
