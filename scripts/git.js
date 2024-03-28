@@ -2,7 +2,7 @@
  * @Author: zhangyunpeng@sensorsdata.cn
  * @Description: 
  * @Date: 2024-03-27 10:50:01
- * @LastEditTime: 2024-03-27 11:55:32
+ * @LastEditTime: 2024-03-28 16:34:56
  */
 const chalk = require('chalk');
 const simpleGit = require('simple-git');
@@ -57,7 +57,6 @@ const replaceImgUrl = async (file) => {
     fs.writeFileSync(file, replaced, 'utf-8');
   } catch (e) {
     console.log(chalk.red(`replace failed ${e?.message}`));
-    process.exit(1);
   }
 }
 
@@ -70,7 +69,7 @@ const replaceFiles = async (files) => {
 }
 
 (async () => {
-  console.log(chalk.green('start'));
+  console.log(chalk.green('----start----'));
   // 1. add files
   await gitAdd();
   // 2. diff 缓存区的 md 文件
@@ -82,4 +81,5 @@ const replaceFiles = async (files) => {
   await gitCommit();
   // 4. push远程
   await gitPush();
+  console.log(chalk.green('----end----'));
 })()
