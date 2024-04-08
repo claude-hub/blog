@@ -2,7 +2,7 @@
  * @Author: zhangyunpeng@sensorsdata.cn
  * @Description: 
  * @Date: 2024-03-27 10:50:01
- * @LastEditTime: 2024-04-08 15:49:49
+ * @LastEditTime: 2024-04-08 15:53:34
  */
 const chalk = require('chalk');
 const simpleGit = require('simple-git');
@@ -80,6 +80,7 @@ const replaceFiles = async (files) => {
   await gitAdd();
   // 2. diff 缓存区的 md 文件
   const files = await gitDiffMDFiles();
+  console.log(files)
   await replaceFiles(files);
   // 3. 修改了文件后，再次提交
   await gitAdd();
