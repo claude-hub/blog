@@ -2,7 +2,7 @@
  * @Author: zhangyunpeng@sensorsdata.cn
  * @Description: 
  * @Date: 2024-03-27 10:50:01
- * @LastEditTime: 2024-04-08 15:53:34
+ * @LastEditTime: 2024-04-08 16:01:20
  */
 const chalk = require('chalk');
 const simpleGit = require('simple-git');
@@ -36,12 +36,12 @@ const gitPush = async () => {
 }
 
 // diff md 文件
-const gitDiffMDFiles = async () => {
+const gitDiffFiles = async () => {
   try {
     const { files } = await simpleGit().diffSummary(['--staged']);
     const changedFiles = files.map(item => item.file);
     console.log(chalk.green(`gitDiff ${changedFiles.join('\n')}`));
-    return changedFiles.filter(item => item.endsWith('.md'));
+    return changedFiles;
   } catch (e) {
     console.log(chalk.red(`gitDiff ${e?.message}`));
     process.exit(1);
@@ -51,9 +51,10 @@ const gitDiffMDFiles = async () => {
 // 替换 url
 const replaceImgUrl = async (file) => {
   try {
+    if (!file.endsWith('.md')) return;
     const contents = fs.readFileSync(file, 'utf-8');
     // 替换
-    // https://raw.githubusercontent.com/claude-hub/cloud-img/main/
+    // https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main/
     const replaced = contents.replace(/https:\/\/raw.githubusercontent.com\/claude-hub\/cloud-img\/main/g, 'https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main');
 
     fs.writeFileSync(file, replaced, 'utf-8');
@@ -79,14 +80,18 @@ const replaceFiles = async (files) => {
   // 1. add files
   await gitAdd();
   // 2. diff 缓存区的 md 文件
-  const files = await gitDiffMDFiles();
-  console.log(files)
-  await replaceFiles(files);
-  // 3. 修改了文件后，再次提交
-  await gitAdd();
-  // 4. 提交代码
-  await gitCommit();
-  // 4. push远程
+  const files = await gitDiffFiles();
+
+  if (files.length > 0) {
+    // 3. 替换图片 url
+    await replaceFiles(files);
+    // 4. 修改了文件后，再次添加
+    await gitAdd();
+    // 5. 提交代码
+    await gitCommit();
+  }
+
+  // 6. push远程
   await gitPush();
 
   console.log(chalk.green('----end----'));
