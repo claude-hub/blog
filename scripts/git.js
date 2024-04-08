@@ -2,12 +2,12 @@
  * @Author: zhangyunpeng@sensorsdata.cn
  * @Description: 
  * @Date: 2024-03-27 10:50:01
- * @LastEditTime: 2024-03-28 16:34:56
+ * @LastEditTime: 2024-04-08 15:49:49
  */
 const chalk = require('chalk');
 const simpleGit = require('simple-git');
 const fs = require('fs');
-
+const shell = require('shelljs');
 
 const gitAdd = async () => {
   await simpleGit().add('.');
@@ -52,6 +52,8 @@ const gitDiffMDFiles = async () => {
 const replaceImgUrl = async (file) => {
   try {
     const contents = fs.readFileSync(file, 'utf-8');
+    // 替换
+    // https://raw.githubusercontent.com/claude-hub/cloud-img/main/
     const replaced = contents.replace(/https:\/\/raw.githubusercontent.com\/claude-hub\/cloud-img\/main/g, 'https://cdn.jsdelivr.net/gh/claude-hub/cloud-img@main');
 
     fs.writeFileSync(file, replaced, 'utf-8');
@@ -70,6 +72,10 @@ const replaceFiles = async (files) => {
 
 (async () => {
   console.log(chalk.green('----start----'));
+
+  // 同步，执行代理
+  shell.exec('export all_proxy=http://127.0.0.1:7890');
+
   // 1. add files
   await gitAdd();
   // 2. diff 缓存区的 md 文件
@@ -81,5 +87,6 @@ const replaceFiles = async (files) => {
   await gitCommit();
   // 4. push远程
   await gitPush();
+
   console.log(chalk.green('----end----'));
 })()
