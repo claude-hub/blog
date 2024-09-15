@@ -86,7 +86,7 @@ module.exports = {
         link: '/',
       },
       {
-        text: '文章',
+        text: '前端周刊',
         link: '/articles/',
       },
       {
@@ -162,7 +162,7 @@ module.exports = {
       ],
       '/articles/': [
         {
-          title: '文章',
+          title: '前端周刊',
           collapsable: false, // 下级列表不可折叠
           sidebarDepth: 0,
           children: readFolder(path.resolve(__dirname, '../articles')),

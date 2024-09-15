@@ -14,6 +14,6 @@ git add -A
 git commit -m 'deploy'
 
 # 如果发布gitee, 访问地址: gitt
-git push -f https://gitee.com/claude-gitee/claude-gitee.git master
+# git push -f https://gitee.com/claude-gitee/claude-gitee.git master
 
 cd -
