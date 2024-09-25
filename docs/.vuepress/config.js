@@ -86,12 +86,12 @@ module.exports = {
         link: '/',
       },
       {
-        text: '前端周刊',
-        link: '/articles/',
+        text: '前端知识',
+        link: '/knowledge/00.HTML/00.概览',
       },
       {
-        text: '前端知识',
-        link: '/knowledge/00.HTML/00.DOCTYPE',
+        text: '前端周刊',
+        link: '/articles/',
       },
       {
         text: '面试题',
