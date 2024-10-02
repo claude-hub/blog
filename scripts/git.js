@@ -86,7 +86,7 @@ const replaceFiles = async (files) => {
   console.log(chalk.green('----start----'));
 
   // 同步，执行代理
-  shell.exec('export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890');
+  // shell.exec('export https_proxy=http://127.0.0.1:7890 http_proxy=http://127.0.0.1:7890 all_proxy=socks5://127.0.0.1:7890');
 
   // 1. add files
   await gitAdd();
