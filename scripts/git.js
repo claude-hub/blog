@@ -38,6 +38,7 @@ const gitCommit = async () => {
 
 const gitPush = async () => {
   try {
+    console.log(chalk.green(`git pushing......`));
     await simpleGit().push();
   } catch (e) {
     console.log(chalk.red(`gitPush ${e?.message}`));
