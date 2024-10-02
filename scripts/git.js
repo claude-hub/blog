@@ -14,8 +14,18 @@ const gitAdd = async () => {
 }
 
 const gitCommit = async () => {
-  const date = new Date();
-  const message = `${date.getFullYear()}/${date.getMonth()}/${date.getDate()}`;
+  const currentDate = new Date();
+  const year = currentDate.getFullYear();
+  // 获取月份，注意月份是从0开始的，所以需要加1
+  const month = currentDate.getMonth() + 1;
+  const day = currentDate.getDate();
+
+  // 格式化月份和日期，确保它们至少有两位数
+  const formattedMonth = month < 10 ? `0${month}` : month;
+  const formattedDay = day < 10 ? `0${day}` : day;
+
+  // 按照指定的格式组合年月日
+  const message = `${year}/${formattedMonth}/${formattedDay}`;
 
   console.log(chalk.green(`gitCommit ${message}`));
   try {
