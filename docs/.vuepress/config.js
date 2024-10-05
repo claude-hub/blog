@@ -112,6 +112,10 @@ module.exports = {
             text: '面经',
             link: '/interview/experience/',
           },
+          {
+            text: '2024',
+            link: '/interview/2024/00.知识点',
+          },
         ],
       },
       // {
@@ -168,6 +172,17 @@ module.exports = {
           children: readFolder(path.resolve(__dirname, '../articles')),
         },
       ],
+      '/interview/2024/': [
+        {
+          title: '知识图谱',
+          sidebarDepth: 2,
+          // children: [
+          //   ['知识点', '前端知识点'],
+          // ],
+          children: readFolder(path.resolve(__dirname, '../interview/2024')),
+        },
+      ],
+
       '/interview/frontend/': [
         {
           title: '前端相关',
