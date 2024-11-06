@@ -71,6 +71,12 @@ module.exports = {
         href: '/favicon.ico',
       },
     ],
+    // Google adsense
+    ['script', {
+      async: 'async',
+      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6215606311487003',
+      crossorigin: 'anonymous',
+    }],
   ],
 
   // markdown: {
