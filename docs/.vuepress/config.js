@@ -77,6 +77,11 @@ module.exports = {
       src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6215606311487003',
       crossorigin: 'anonymous',
     }],
+    // Google adsense 文章广告单元
+    ['script', {},
+      `window['addAds'] = function(){
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      }`],
   ],
 
   // markdown: {
