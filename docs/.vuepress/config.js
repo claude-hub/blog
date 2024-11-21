@@ -128,9 +128,19 @@ module.exports = {
     // </script>
 
     // <!-- Google tag (gtag.js) -->
+    // <script async src="https://www.googletagmanager.com/gtag/js?id=G-K74LKS85ZB"></script>
+    // <script>
+    //   window.dataLayer = window.dataLayer || [];
+    //   function gtag(){dataLayer.push(arguments);}
+    //   gtag('js', new Date());
+
+    //   gtag('config', 'G-K74LKS85ZB');
+    // </script>
+
+    // <!-- Google tag (gtag.js) -->
     ['script', {
       async: 'async',
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-LV493ER5K4',
+      src: 'https://www.googletagmanager.com/gtag/js?id=G-K74LKS85ZB',
       crossorigin: 'anonymous',
     }],
     [
@@ -139,7 +149,7 @@ module.exports = {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-LV493ER5K4');
+        gtag('config', 'G-K74LKS85ZB');
       `
     ]
   ],
