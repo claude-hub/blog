@@ -71,22 +71,22 @@ module.exports = {
         href: '/favicon.ico',
       },
     ],
-    // Google adsense
-    ['meta', {
-      name: 'google-adsense-account',
-      content: 'ca-pub-6215606311487003'
-    }],
-    // Google adsense
-    ['script', {
-      async: 'async',
-      src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6215606311487003',
-      crossorigin: 'anonymous',
-    }],
-    // Google adsense 文章广告单元
-    ['script', {},
-      `window['addAds'] = function(){
-          (adsbygoogle = window.adsbygoogle || []).push({});
-      }`],
+    // // Google adsense
+    // ['meta', {
+    //   name: 'google-adsense-account',
+    //   content: 'ca-pub-6215606311487003'
+    // }],
+    // // Google adsense
+    // ['script', {
+    //   async: 'async',
+    //   src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6215606311487003',
+    //   crossorigin: 'anonymous',
+    // }],
+    // // Google adsense 文章广告单元
+    // ['script', {},
+    //   `window['addAds'] = function(){
+    //       (adsbygoogle = window.adsbygoogle || []).push({});
+    //   }`],
 
 
     // 1. 将此代码粘贴到网页的 <head> 中尽可能靠上的位置：
@@ -105,15 +105,15 @@ module.exports = {
     // <!-- End Google Tag Manager (noscript) -->
 
     // GTM
-    [
-      'script', {},
-      `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-K48SQ9HQ')
-      `
-    ],
+    // [
+    //   'script', {},
+    //   `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    //     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    //     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    //     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    //     })(window,document,'script','dataLayer','GTM-K48SQ9HQ')
+    //   `
+    // ],
 
 
 
@@ -138,20 +138,20 @@ module.exports = {
     // </script>
 
     // <!-- Google tag (gtag.js) -->
-    ['script', {
-      async: 'async',
-      src: 'https://www.googletagmanager.com/gtag/js?id=G-K74LKS85ZB',
-      crossorigin: 'anonymous',
-    }],
-    [
-      'script', {},
-      `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-K74LKS85ZB');
-      `
-    ]
+    // ['script', {
+    //   async: 'async',
+    //   src: 'https://www.googletagmanager.com/gtag/js?id=G-K74LKS85ZB',
+    //   crossorigin: 'anonymous',
+    // }],
+    // [
+    //   'script', {},
+    //   `
+    //     window.dataLayer = window.dataLayer || [];
+    //     function gtag(){dataLayer.push(arguments);}
+    //     gtag('js', new Date());
+    //     gtag('config', 'G-K74LKS85ZB');
+    //   `
+    // ]
   ],
 
   // markdown: {
